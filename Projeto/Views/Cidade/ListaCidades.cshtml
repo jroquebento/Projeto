@@ -1,0 +1,39 @@
+﻿@model List<Projeto.Models.Cidade>
+
+<h2>Lista de Cidades</h2>
+<p>
+    @Html.ActionLink("Adicionar", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Código")
+        </th>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Uf")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodCidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uf)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.CodCidade })
+            </td>
+        </tr>
+    }
+
+</table>

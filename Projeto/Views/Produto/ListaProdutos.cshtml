@@ -1,0 +1,70 @@
+﻿@model List<Projeto.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Produtos</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("CodProduto")
+        </th>
+        <th>
+            @Html.DisplayName("Descrição")
+        </th>
+        <th>
+            @Html.DisplayName("Categoria")
+        </th>
+        <th>
+            @Html.DisplayName("Fornecedor")
+        </th>
+
+        <th>
+            @Html.DisplayName("Peso")
+        </th>
+        <th>
+            @Html.DisplayName("Controlado")
+        </th>
+        <th>
+            @Html.DisplayName("QtdeMin")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CodProduto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Descricao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Categoria.Nome)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Peso)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Controlado)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QtdeMin)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.CodProduto })
+    </td>
+</tr>
+    }
+
+</table>

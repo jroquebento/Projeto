@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Projeto.Models.ItemSaida>
+
+@{
+    ViewBag.Title = "Item Saida";
+}
+
+<h1>Item Saida</h1>
+
+<p>
+    @Html.ActionLink("Adicionar", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodItemSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qtde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodItemSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saida.CodSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qtde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+    </tr>
+}
+
+</table>

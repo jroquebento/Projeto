@@ -1,0 +1,92 @@
+﻿@model List<Projeto.Models.Transportadora>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Transportadoras</h2>
+
+<p>
+    @Html.ActionLink("Adicionar", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("CodTransportadora")
+        </th>
+        <th>
+            @Html.DisplayName("Cidade")
+        </th>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Endereço")
+        </th>
+        <th>
+            @Html.DisplayName("Num")
+        </th>
+        <th>
+            @Html.DisplayName("Bairro")
+        </th>
+        <th>
+            @Html.DisplayName("Cep")
+        </th>
+        <th>
+            @Html.DisplayName("Cnpj")
+        </th>
+        <th>
+            @Html.DisplayName("Insc")
+        </th>
+        <th>
+            @Html.DisplayName("Contato")
+        </th>
+        <th>
+            @Html.DisplayName("Tel")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodTransportadora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cnpj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.CodTransportadora })               
+            </td>
+        </tr>
+    }
+
+</table>

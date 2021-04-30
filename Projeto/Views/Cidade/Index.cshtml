@@ -1,0 +1,35 @@
+﻿@model Projeto.Models.BuscarCidadeViewModel
+
+@{
+    ViewBag.Title = "Cidade";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <title>@ViewBag.Title</title>
+
+    <h1>Cidade</h1>
+
+    <hr/>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <form role="form">
+        <div class="row">
+            <div class="form-group col-xs-3">
+                @Html.LabelFor(model => model.Nome)
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-xs-2">
+                <label>&nbsp;</label>
+                <input type="submit" value="Buscar" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </form>
+}
+
+@Html.Partial("ListaCidades", Model.ListaCidades)
